@@ -1,5 +1,6 @@
 package com.lewaos.launcher.common;
 
+import android.bluetooth.BluetoothGattServer;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-    private ImageView mImageview;
+    private GaussianView mGaussianView;
     private Button mButton;
 
     @Override
@@ -34,17 +35,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
-        mImageview = (ImageView) findViewById(R.id.image);
+        mGaussianView = (GaussianView) findViewById(R.id.image);
         mButton = (Button)findViewById(R.id.button);
         mButton.setOnClickListener(this);
     }
-
+    Bitmap bitmap = null;
     @Override
     public void onClick(View v) {
         if (v == mButton) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
-            ImageUtils.gaussianBlur(bitmap);
-            mImageview.setImageBitmap(bitmap);
+            if (bitmap == null) {
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.screen);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 64, 64, true);
+            }
+            mGaussianView.setBitmap(bitmap);
         }
     }
 

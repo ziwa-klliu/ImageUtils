@@ -12,10 +12,9 @@ public class ImageUtils {
         System.loadLibrary(LIBRARY_NAME);
     }
 
-    public static Bitmap gaussianBlur(Bitmap bitmap) {
-        nGaussianBlur(bitmap);
-        return bitmap;
+    public void gaussianBlur(Bitmap bitmap) {
+        nGaussianBlur(bitmap, 16);
     }
 
-    private static native void nGaussianBlur(Bitmap bitmap);
+    private native void nGaussianBlur(Bitmap bitmap, int radius);
 }
