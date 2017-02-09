@@ -1,4 +1,4 @@
-package com.lewaos.common;
+package org.quenlen.magic;
 
 import android.graphics.Bitmap;
 

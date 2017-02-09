@@ -113,10 +113,6 @@ static argb* argb_add(argb* a, argb* b)
 
 static argb* argb_compose(argb* a, argb* b)
 {
-    if (DEBUG)
-    {
-        LOGD("Result alpha: %f, Bitmap alpha: %f\n", a->alpha, b->alpha);
-    }
     double_t factor = 255.0 - b->alpha;
     a->alpha = factor * a->alpha + b->alpha;
     a->red =  factor * a->red + b->red;
@@ -234,7 +230,7 @@ static void compose_bitmap(AndroidBitmapInfo *result_info, void *result_pixels,
 
 
 JNIEXPORT void JNICALL
-Java_com_lewaos_common_ImageUtils_nGaussianBlur(JNIEnv *env, jclass clazz, jobject bitmap, jint radius)
+Java_org_quenlen_magic_ImageUtils_nGaussianBlur(JNIEnv *env, jclass clazz, jobject bitmap, jint radius)
 {
     AndroidBitmapInfo info;
     void* pixels;
@@ -269,7 +265,7 @@ Java_com_lewaos_common_ImageUtils_nGaussianBlur(JNIEnv *env, jclass clazz, jobje
 }
 
 JNIEXPORT void JNICALL
-Java_com_lewaos_common_ImageUtils_nComposeBitmap(JNIEnv *env, jclass clazz, jobject result, jobject bitmap)
+Java_org_quenlen_magic_ImageUtils_nComposeBitmap(JNIEnv *env, jclass clazz, jobject result, jobject bitmap)
 {
     AndroidBitmapInfo result_info;
     AndroidBitmapInfo bitmap_info;

@@ -14,6 +14,8 @@ import android.widget.Button;
 
 import com.lewaos.common.R;
 
+import org.quenlen.magic.ImageUtils;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

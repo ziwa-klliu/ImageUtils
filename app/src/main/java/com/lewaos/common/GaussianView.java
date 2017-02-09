@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+import org.quenlen.magic.ImageUtils;
+
 /**
  * Created by alex on 16-9-2.
  */
